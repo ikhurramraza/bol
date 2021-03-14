@@ -1,12 +1,13 @@
 if [[ -o interactive ]] && [[ -o login ]]; then
-    __bol_quotes=(
-        # 🧛🏻 The Originals
-        "I am...immortal.\n— Klaus Mikaelson"
-        "Don't underestimate the allure of darkness, Stefan.\nEven the purest hearts are drawn to it.\n— Klaus Mikaelson"
-        "I will ALWAYS choose him.\n— Elijiah Mikaelson"
-    )
+    __BOL_SCRIPT_PATH="$(
+        cd -- "$(dirname "$0")" >/dev/null 2>&1
+        pwd -P
+    )"
 
-    printf '%b\n\n' "${__bol_quotes[RANDOM % $#__bol_quotes + 1]}"
+    __BOL_QUOTES_PATH="${__BOL_SCRIPT_PATH}/quotes"
 
-    unset __bol_quotes
+    cat $(ls -d ${__BOL_QUOTES_PATH}/**/*.txt | shuf -n 1) && echo ""
+
+    unset __BOL_SCRIPT_PATH
+    unset __BOL_QUOTES_PATH
 fi
