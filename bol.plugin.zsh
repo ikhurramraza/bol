@@ -8,6 +8,11 @@ if [[ -o interactive ]] && [[ -o login ]]; then
 
     cat $(ls -d ${__BOL_QUOTES_PATH}/**/*.txt | shuf -n 1) && echo ""
 
+    for _bol_config_file in ${__BOL_SCRIPT_PATH}/lib/**/*.zsh; do
+        source "$_bol_config_file"
+    done
+
+    unset _bol_config_file
+
     unset __BOL_SCRIPT_PATH
-    unset __BOL_QUOTES_PATH
 fi
