@@ -140,12 +140,14 @@ function _bol::add {
 
   _bol::add::_preview $name $quote $author > "$quote_path"
 
-  echo "Quote added:"
-  echo ""
-  cat $quote_path
-  echo ""
+  cat <<MESSAGE
+Quote added:
 
-  echo "It can be removed using: rm ${quote_path}"
+$(cat $quote_path)
+
+It can be removed using:
+rm ${quote_path}
+MESSAGE
 
   return 0
 }
