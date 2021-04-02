@@ -20,15 +20,3 @@ plugins=(bol)
 ```
 
 3. Start a new terminal session.
-
-## How to add your own favourites
-
-Adding a quoute is as simple as adding a .txt file in the quotes directory.
-
-A one liner would be:
-
-```bash
-echo "Code is like humor. If you have to explain it, it’s bad.\n—Cory House\n" > ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/bol/quotes/bad-code.txt
-```
-
-If you have a good quote that you would like to share with everyone, please open a PR. :)
