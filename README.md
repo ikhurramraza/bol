@@ -4,7 +4,7 @@ An [`oh-my-zsh`](https://github.com/robbyrussell/oh-my-zsh) plugin, that prints 
 
 ![Screenshot](images/preview.png)
 
-## How to install
+## 💽 How to install
 
 1. Clone this repository in `oh-my-zsh` custom plugins directory:
 
