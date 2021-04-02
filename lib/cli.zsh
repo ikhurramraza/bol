@@ -138,7 +138,7 @@ function _bol::add {
 
   local quote_path="${__BOL_QUOTES_PATH}/${hierarchy}${name}${EXTENSION}"
 
-  _bol::add::_preview $name $quote $author >"$quote_path"
+  _bol::add::_build $name $quote $author >"$quote_path"
 
   cat <<MESSAGE
 Quote added:
@@ -152,7 +152,7 @@ MESSAGE
   return 0
 }
 
-function _bol::add::_preview {
+function _bol::add::_build {
   local SEPARATOR="—"
 
   local name="$1"
