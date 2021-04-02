@@ -86,8 +86,9 @@ Available options:
   --hierarchy     Directory hierarchy of the quote
 
 Examples:
-  bol add immortal "I am...immortal."
-  bol add immortal "I am...immortal." --author "Klaus Mikaelson" --hierarchy "Originals/Klaus"
+  bol add bad-code "Code is like humor. If you have to explain it, it’s bad."
+  bol add bad-code "Code is like humor. If you have to explain it, it’s bad." --author "Cory House"
+  bol add bad-code "Code is like humor. If you have to explain it, it’s bad." --author "Cory House" --hierarchy "Coding/General"
 HELP
 }
 
