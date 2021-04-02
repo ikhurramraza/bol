@@ -104,7 +104,7 @@ function _bol::add {
   elif [[ $# -eq 1 ]] && [ $1 = "help" ]; then
     _bol::add::help
     return 0
-  elif [[ $# -gt 0 ]]; then
+  elif [[ $# -gt 1 ]]; then
     local name="$1"
     local quote="$2"
     shift 2
