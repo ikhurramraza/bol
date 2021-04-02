@@ -138,7 +138,7 @@ function _bol::add {
 
   local quote_path="${__BOL_QUOTES_PATH}/${hierarchy}${name}${EXTENSION}"
 
-  _bol::add::_preview $name $quote $author > "$quote_path"
+  _bol::add::_preview $name $quote $author >"$quote_path"
 
   cat <<MESSAGE
 Quote added:
