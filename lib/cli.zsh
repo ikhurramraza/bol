@@ -93,6 +93,8 @@ HELP
 }
 
 function _bol::add {
+  local EXTENSION=".txt"
+
   if [ -z $__BOL_QUOTES_PATH ]; then
     echo "Quote path not configured."
     return 1
@@ -129,8 +131,6 @@ function _bol::add {
       ;;
     esac
   done
-
-  local EXTENSION=".txt"
 
   if [ ! -z $hierarchy ]; then
     mkdir -p "${__BOL_QUOTES_PATH}/${hierarchy}"
