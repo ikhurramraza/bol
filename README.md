@@ -21,6 +21,10 @@ plugins=(bol)
 
 3. Start a new terminal session.
 
+## ⚙️ Options
+
+1. You can set `BOL_QUIET_MODE` environment variable to avoid printing a quote when you open a terminal. Say in your VS Code integrated terminal.
+
 ## 📖 Usage
 
 This plugin comes with a CLI to perform simple tasks.
