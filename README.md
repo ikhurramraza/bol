@@ -29,9 +29,19 @@ plugins=(bol)
 
 This plugin comes with a CLI to perform simple tasks.
 
+If no subcommand is passed, it calls the `print` subcommand.
+
 #### 🆘 Help
 
 Each subcommand comes with its own `help` subcommand. That defines the usage and options with examples.
+
+#### 🖨 Print
+
+Print a random quote.
+
+```bash
+Usage: bol print [options]
+```
 
 #### ➕ Add a quote
 

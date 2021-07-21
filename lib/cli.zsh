@@ -6,8 +6,8 @@
 
 function bol {
   if [[ $# -eq 0 ]]; then
-    _bol::help
-    return 1
+    _bol::print --preceding-new-line
+    return 0
   fi
 
   local command="$1"
@@ -33,6 +33,7 @@ function _bol {
   cmds=(
     'help:Usage information'
     'add:Add a quote'
+    'print:Print a random quote'
   )
 
   if ((CURRENT == 2)); then
@@ -41,6 +42,13 @@ function _bol {
     case "$words[2]" in
     add)
       subcmds=('help:Usage information')
+      _describe 'command' subcmds
+      ;;
+    print)
+      subcmds=(
+        'help:Usage information'
+        '--preceding-new-line:Print a new line before the quote.'
+      )
       _describe 'command' subcmds
       ;;
     esac
@@ -65,7 +73,50 @@ Available commands:
 
  help           Print this help message
  add            Add a quote
+ print          Print a random quote
 HELP
+}
+
+# =============================== COMMAND: bol print =============================== #
+
+function _bol::print::help {
+  cat <<HELP
+Usage: bol print
+
+Print a random quote.
+
+Available options:
+  --preceding-new-line    Print a new line before the quote.
+HELP
+}
+
+function _bol::print {
+  if [ -z $__BOL_QUOTES_PATH ]; then
+    echo "Quote path not configured." 1>&2
+    return 1
+  fi
+
+  if [[ $# -eq 1 ]] && [ $1 = "help" ]; then
+    _bol::print::help
+    return 0
+  fi
+
+  while test $# -gt 0; do
+    case "$1" in
+    --preceding-new-line)
+      local precede_with_new_line="true"
+      shift 1
+      ;;
+    *)
+      echo "Don't know how to handle parameters: $*"
+      return 1
+      ;;
+    esac
+  done
+
+  [ "${precede_with_new_line}" = "true" ] && echo ""
+  cat $(ls -d ${__BOL_QUOTES_PATH}/**/*.txt | shuf -n 1)
+  echo ""
 }
 
 # =============================== COMMAND: bol add =============================== #
