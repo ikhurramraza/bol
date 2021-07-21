@@ -45,7 +45,10 @@ function _bol {
       _describe 'command' subcmds
       ;;
     print)
-      subcmds=('help:Usage information')
+      subcmds=(
+        'help:Usage information'
+        '--preceding-new-line:Print a new line before the quote.'
+      )
       _describe 'command' subcmds
       ;;
     esac
